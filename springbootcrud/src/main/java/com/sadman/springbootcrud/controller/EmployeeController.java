@@ -2,13 +2,13 @@ package com.sadman.springbootcrud.controller;
 
 import com.sadman.springbootcrud.exception.RecordNotFoundException;
 import com.sadman.springbootcrud.model.Employee;
+import com.sadman.springbootcrud.model.Image;
 import com.sadman.springbootcrud.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -54,5 +54,21 @@ public class EmployeeController {
     {
         service.createOrUpdateEmployee(employee);
         return "redirect:/";
+    }
+
+    @PostMapping("/fileupload")
+    public String fileUpload(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
+        try {
+            byte[] image = file.getBytes();
+            Image model = new Image(name, image);
+            int saveImage = service.saveImage(model);
+            if (saveImage == 1) {
+                return "success";
+            } else {
+                return "error";
+            }
+        } catch (Exception e) {
+            return "error";
+        }
     }
 }

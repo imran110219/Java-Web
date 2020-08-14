@@ -1,3 +1,5 @@
+CREATE DATABASE crud;
+
 DROP TABLE IF EXISTS employee;
 
 CREATE TABLE employee (
@@ -6,3 +8,13 @@ CREATE TABLE employee (
   last_name VARCHAR(250) NOT NULL,
   email VARCHAR(250) DEFAULT NULL
 );
+
+DROP TABLE IF EXISTS image;
+
+CREATE TABLE image (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  file_name VARCHAR(128) DEFAULT NULL,
+  file_data LONGBLOB
+);
+
+

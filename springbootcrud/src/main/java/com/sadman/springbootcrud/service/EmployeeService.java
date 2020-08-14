@@ -2,7 +2,9 @@ package com.sadman.springbootcrud.service;
 
 import com.sadman.springbootcrud.exception.RecordNotFoundException;
 import com.sadman.springbootcrud.model.Employee;
+import com.sadman.springbootcrud.model.Image;
 import com.sadman.springbootcrud.repository.EmployeeRepository;
+import com.sadman.springbootcrud.repository.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,9 @@ public class EmployeeService {
 
     @Autowired
     EmployeeRepository repository;
+
+    @Autowired
+    ImageRepository imageRepository;
 
     public List<Employee> getAllEmployees()
     {
@@ -77,6 +82,15 @@ public class EmployeeService {
             repository.deleteById(id);
         } else {
             throw new RecordNotFoundException("No employee record exist for given id");
+        }
+    }
+
+    public int saveImage(Image image) {
+        try {
+            imageRepository.save(image);
+            return 1;
+        } catch (Exception e) {
+            return 0;
         }
     }
 }

@@ -14,7 +14,8 @@ DROP TABLE IF EXISTS image;
 CREATE TABLE image (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   file_name VARCHAR(128) DEFAULT NULL,
-  file_data LONGBLOB
+  file_data LONGBLOB,
+  upload_date DATE
 );
 
 

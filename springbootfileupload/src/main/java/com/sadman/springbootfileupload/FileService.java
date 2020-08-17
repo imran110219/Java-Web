@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class FileService {
@@ -22,6 +24,17 @@ public class FileService {
             return 1;
         } catch (Exception e) {
             return 0;
+        }
+    }
+
+    public List<Image> getAllImages()
+    {
+        List<Image> result = (List<Image>) imageRepository.findAll();
+
+        if(result.size() > 0) {
+            return result;
+        } else {
+            return new ArrayList<Image>();
         }
     }
 }

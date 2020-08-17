@@ -14,7 +14,7 @@
 <div class="container my-2">
     <div class="card">
         <div class="card-body">
-            <div th:switch="${images}" class="container my-5">
+            <div th:switch="${baseImages}" class="container my-5">
 
                 <div class="col-md-10">
                     <h2 th:case="null">No record found !!</h2>
@@ -26,10 +26,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="image : ${images}">
+                                <tr th:each="baseImage : ${baseImages}">
                                     <td>
-                                        <!--/*@thymesVar id="image" type=""*/-->
-                                        <img th:src="@/{image.data}"/>
+                                        <img th:src="|data:image/png;base64,${baseImage}|"/>
                                     </td>
                                 </tr>
                             </tbody>

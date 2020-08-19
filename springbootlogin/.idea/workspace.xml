@@ -20,9 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed71737d-0efd-4892-ac04-43c5f10c7314" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../springbootcrud/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../springbootcrud/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springbootcrud/src/main/java/com/sadman/springbootcrud/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springbootcrud/src/main/java/com/sadman/springbootcrud/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springbootcrud/src/main/java/com/sadman/springbootcrud/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springbootcrud/src/main/java/com/sadman/springbootcrud/service/EmployeeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,6 +71,7 @@
       <workItem from="1595206594829" duration="2742000" />
       <workItem from="1597239563561" duration="3661000" />
       <workItem from="1597292440920" duration="1645000" />
+      <workItem from="1597762857923" duration="1332000" />
     </task>
     <servers />
   </component>

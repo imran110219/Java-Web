@@ -45,7 +45,7 @@ public class EmployeeService {
 
     public Employee createOrUpdateEmployee(Employee entity)
     {
-        if(entity.getId()  == null)
+        if(entity.getId() == null)
         {
             entity = repository.save(entity);
 

@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "account")
+@Table(name = "accounts")
 public class Account implements java.io.Serializable {
 
     @Id

@@ -2,6 +2,7 @@ package com.sadman.thymeleaflayout.controller;
 
 import com.sadman.thymeleaflayout.model.Account;
 import com.sadman.thymeleaflayout.repository.AccountRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.util.Assert;
@@ -11,15 +12,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
+import java.util.Optional;
 
 @RestController
 public class AccountController {
 
-    private final AccountRepository accountRepository;
-
-    public AccountController(AccountRepository accountRepository) {
-        this.accountRepository = accountRepository;
-    }
+    @Autowired
+    private AccountRepository accountRepository;
 
     @GetMapping("account/current")
     @ResponseStatus(value = HttpStatus.OK)
@@ -32,7 +31,7 @@ public class AccountController {
     @GetMapping("account/{id}")
     @ResponseStatus(value = HttpStatus.OK)
     @Secured("ROLE_ADMIN")
-    public Account account(@PathVariable("id") Long id) {
-        return accountRepository.findOne(id);
+    public Optional<Account> account(@PathVariable("id") Long id) {
+        return accountRepository.findById(id);
     }
 }

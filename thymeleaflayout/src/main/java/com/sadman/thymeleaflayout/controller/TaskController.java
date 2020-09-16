@@ -1,6 +1,7 @@
 package com.sadman.thymeleaflayout.controller;
 
 import com.sadman.thymeleaflayout.service.TaskService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,13 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @Secured("ROLE_USER")
-class TaskController {
+public class TaskController {
 
-    private final TaskService taskService;
-
-    TaskController(TaskService taskService) {
-        this.taskService = taskService;
-    }
+    @Autowired
+    TaskService taskService;
 
     @ModelAttribute("module")
     public String module() {

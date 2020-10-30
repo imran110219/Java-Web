@@ -6,6 +6,7 @@ import com.sadman.springbootmssql.exception.ResourceNotFoundException;
 import com.sadman.springbootmssql.model.Employee;
 import com.sadman.springbootmssql.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,7 +36,7 @@ public class EmployeeController {
         return ResponseEntity.ok().body(employee);
     }
 
-    @PostMapping("/employees")
+    @PostMapping(value="/employees", consumes = "application/json")
     public Employee createEmployee(@Valid @RequestBody Employee employee) {
         return employeeRepository.save(employee);
     }
@@ -46,7 +47,7 @@ public class EmployeeController {
         Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
 
-        employee.setEmailId(employeeDetails.getEmailId());
+        employee.setEmail(employeeDetails.getEmail());
         employee.setLastName(employeeDetails.getLastName());
         employee.setFirstName(employeeDetails.getFirstName());
         final Employee updatedEmployee = employeeRepository.save(employee);

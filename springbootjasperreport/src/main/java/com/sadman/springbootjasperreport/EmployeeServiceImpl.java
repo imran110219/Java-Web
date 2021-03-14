@@ -1,5 +1,12 @@
 package com.sadman.springbootjasperreport;
 
+import com.github.javafaker.Faker;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
